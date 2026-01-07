@@ -34,7 +34,7 @@ length_input = st.selectbox(
 
 template=load_prompt("template.json")
 
-formatted_prompt =template.invoke({
+prompt =template.invoke({
     "paper_input": paper_input,
     "style_input": style_input,
     "length_input": length_input
@@ -42,7 +42,7 @@ formatted_prompt =template.invoke({
 
 chat_Model=ChatHuggingFace(llm=llm)
 if st.button("Submit"):
-    result=chat_Model.invoke(formatted_prompt)
+    result=chat_Model.invoke(prompt)
     st.write(result.content)
 
 
